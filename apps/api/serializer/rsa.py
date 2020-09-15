@@ -12,7 +12,7 @@ class RsaModelSerializer(serializers.ModelSerializer):
     switch = serializers.SerializerMethodField()
     class Meta:
         model = models.Rsa
-        fields = ["id", "status", "user", "private_key", "switch"]
+        fields = ["id", "status", "user", "name", "private_key", "switch"]
         # 定义只在验证时用到的字段
         extra_kwargs = {'status': {'write_only': True}}
 
@@ -21,4 +21,8 @@ class RsaModelSerializer(serializers.ModelSerializer):
     def get_switch(self, obj):
         return {"code": obj.status, "text": obj.get_status_display()}
 
-
+class RsaListModelSerializer(RsaModelSerializer):
+    class Meta:
+        model = models.Rsa
+        fields = ["id", "status", "user", "name", "switch"]
+        extra_kwargs = {'status': {'write_only': True}}

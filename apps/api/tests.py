@@ -155,12 +155,57 @@
 #
 # print(ll.search(346457))
 
-from django.conf.urls import handler404
+# from django.conf.urls import handler404
+#
+# from django_gravatar.helpers import get_gravatar_url, has_gravatar, get_gravatar_profile_url, calculate_gravatar_hash
+# from rest_framework import exceptions
+# from rest_framework.parsers import JSONParser
+# url = get_gravatar_url('alice@example.com', size=150)
+# gravatar_exists = has_gravatar('bob@example.com')
+# profile_url = get_gravatar_profile_url('alice@example.com')
+# email_hash = calculate_gravatar_hash('alice@example.com')
+#
+#
+#
+# host_candidate = [tech for tech, weight in tech_list for i in range(weight)]
+#
+# print(random.choice(host_candidate))
 
-from django_gravatar.helpers import get_gravatar_url, has_gravatar, get_gravatar_profile_url, calculate_gravatar_hash
-from rest_framework import exceptions
-from rest_framework.parsers import JSONParser
-url = get_gravatar_url('alice@example.com', size=150)
-gravatar_exists = has_gravatar('bob@example.com')
-profile_url = get_gravatar_profile_url('alice@example.com')
-email_hash = calculate_gravatar_hash('alice@example.com')
+# from functools import lru_cache
+# @lru_cache()
+# def fib(n):
+#     if n <= 2:
+#         return 1
+#     else:
+#         return fib(n - 1) + fib(n - 2)
+#
+# if __name__ == '__main__':
+#     import time
+#     start = time.time()
+#
+#     n = fib(40)
+#
+#     end = time.time()
+#
+#     total = end - start
+#
+#     print(n)
+#     print(total)
+
+# import short_url
+# # url = short_url.encode_url(1, min_length=6)
+#
+#
+# url = short_url.encode_url(90000000000000)
+#
+# print(url)
+
+import logging
+
+logging.basicConfig(filename="my.log", level=logging.DEBUG)
+
+logging.debug("This is a debug log.")
+logging.info("This is a info log.")
+logging.warning("This is a warning log.")
+logging.error("This is a error log.")
+logging.critical("This is a critical log.")

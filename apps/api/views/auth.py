@@ -14,6 +14,8 @@ from utils.jwt_auth import create_token
 from utils.response import BaseResponse
 from extensions.auth import JwtQueryParamAuthentication, JwtAuthorizationAuthentication
 
+from togo.settings import logger
+
 
 class LoginModelSerializer(serializers.ModelSerializer):
     class Meta:
@@ -42,6 +44,7 @@ class LoginView(APIView):
             res.error = '用户名或密码错误'
             return Response(res.dict, status.HTTP_401_UNAUTHORIZED)
 
+        logger.info("用户{}登录成功!".format(user.username))
         token = create_token({'id':user.id, 'username': user.username})
         res.data = {
             "token": token

@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 from django_gravatar.helpers import get_gravatar_url
 
@@ -24,6 +25,7 @@ class Rsa(models.Model):
     )
     status =models.PositiveIntegerField(verbose_name="状态", choices=status_choices)
     user =models.CharField(verbose_name="用户", max_length=32, default="root")
+    name = models.CharField(verbose_name="密钥名称", max_length=32)
     private_key =models.TextField(verbose_name="私钥")
-
+    create_time = models.DateTimeField(verbose_name="创建时间", default=datetime.now)
 

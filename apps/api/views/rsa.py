@@ -7,7 +7,7 @@
 from rest_framework import serializers
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
-from ..serializer.rsa import RsaModelSerializer
+from ..serializer.rsa import RsaModelSerializer, RsaListModelSerializer
 from extensions.auth import JwtAuthorizationAuthentication
 
 from .. import models
@@ -20,7 +20,6 @@ class RsaView(ModelViewSet):
     queryset = models.Rsa.objects
     serializer_class = RsaModelSerializer
 
-
-
-
-
+    def list(self, request, *args, **kwargs):
+        self.serializer_class = RsaListModelSerializer
+        return super().list(request, *args, **kwargs)
